@@ -16,6 +16,10 @@ The application provides immediate feedback and the option to redo only the ques
 - **Review Mode**: At the end of the quiz, you can choose to restart the full quiz or practice only the questions you got wrong.
 - **Modern UI**: A clean and modern user interface using the customtkinter library.
 
+## Interface
+
+![QuizV](image/interface_quiz.png)
+
 ## Project Structure
 
 ```
