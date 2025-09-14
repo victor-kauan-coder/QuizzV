@@ -18,7 +18,7 @@ The application provides immediate feedback and the option to redo only the ques
 
 ## Interface
 
-![QuizV](image/interface_quiz.png)
+![QuizV](image/interface_quizv.png)
 
 ## Project Structure
 
