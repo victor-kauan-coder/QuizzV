@@ -1,0 +1,792 @@
+[
+  {
+    "question": "Um protocolo de rede, como o TCP, define apenas o formato das mensagens trocadas entre entidades, mas não as ações que devem ser tomadas ao receber essas mensagens.",
+    "answer": "Falso",
+    "explanation": "Um protocolo de rede define tanto o formato e a ordem das mensagens trocadas quanto as ações a serem tomadas na transmissão e/ou recebimento de uma mensagem ou outro evento. A definição das ações é uma parte crucial do protocolo, garantindo que as entidades comunicantes possam interagir de forma previsível e confiável. [1]"
+  },
+  {
+    "question": "Os padrões da Internet, como os RFCs (Requests for Comments) desenvolvidos pela IETF, são importantes principalmente para garantir que produtos de um único fabricante funcionem bem, não sendo essenciais para a interoperabilidade entre diferentes fabricantes.",
+    "answer": "Falso",
+    "explanation": "Os padrões são fundamentais para garantir a interoperabilidade entre sistemas e produtos de diferentes fabricantes. Ao definir precisamente o funcionamento de cada protocolo (TCP, IP, HTTP, etc.), os RFCs permitem que qualquer empresa crie hardware ou software que possa se comunicar com sucesso com outros sistemas que sigam os mesmos padrões, formando a Internet global e aberta que conhecemos. [1]"
+  },
+  {
+    "question": "Em uma rede de comutação de pacotes, quando um sistema final envia uma mensagem longa para outro, a mensagem é enviada como um único bloco contínuo de dados através da rede para garantir a integridade.",
+    "answer": "Falso",
+    "explanation": "Em redes de comutação de pacotes como a Internet, o sistema final de origem segmenta mensagens longas em pedaços menores chamados pacotes. Cada pacote recebe um cabeçalho e é enviado independentemente através da rede, sendo remontado no destino. Esta abordagem permite um compartilhamento mais eficiente e flexível dos recursos da rede. [1]"
+  },
+  {
+    "question": "A interface de socket fornecida pela Internet a uma aplicação é análoga a um conjunto de regras que um programa deve seguir para que a infraestrutura da rede possa entregar seus dados a um programa de destino específico em outro sistema.",
+    "answer": "Verdadeiro",
+    "explanation": "A interface de socket atua como uma API (Application Programming Interface) entre a aplicação e a camada de transporte. Ela define um conjunto de regras e funções que o programa emissor utiliza para instruir a rede a entregar dados a um processo específico em um host de destino, abstraindo a complexidade da rede subjacente. [1]"
+  },
+  {
+    "question": "Hosts e sistemas finais (end systems) são termos que se referem a conceitos diferentes; um host executa aplicações, enquanto um sistema final é apenas um dispositivo terminal sem capacidade de processamento de aplicações.",
+    "answer": "Falso",
+    "explanation": "Os termos 'host' e 'sistema final' (end system) são usados de forma intercambiável para se referir aos dispositivos na borda da Internet que executam aplicações. Isso inclui desde computadores e servidores até smartphones e dispositivos IoT. Ambos os termos denotam os pontos finais da comunicação na rede. [1]"
+  },
+  {
+    "question": "A principal função dos roteadores é executar aplicações de usuário, como servidores web, enquanto os sistemas finais se encarregam de encaminhar pacotes no núcleo da rede.",
+    "answer": "Falso",
+    "explanation": "As funções estão invertidas. Os sistemas finais (hosts) executam as aplicações de usuário na borda da rede. Os roteadores são dispositivos do núcleo da rede (network core) cuja principal função é encaminhar pacotes de dados entre redes para que cheguem ao seu destino final. [1]"
+  },
+  {
+    "question": "A arquitetura cliente-servidor é caracterizada por um servidor sempre ativo que atende a solicitações de múltiplos clientes, os quais não se comunicam diretamente entre si.",
+    "answer": "Verdadeiro",
+    "explanation": "Na arquitetura cliente-servidor, há uma distinção clara de papéis. O servidor é um provedor de serviços centralizado, sempre disponível e com um endereço conhecido. Os clientes iniciam a comunicação solicitando serviços ao servidor e não se comunicam diretamente com outros clientes através da aplicação. [1]"
+  },
+  {
+    "question": "Uma das principais vantagens da arquitetura P2P (peer-to-peer) é sua auto-escalabilidade, onde cada novo par que se junta para consumir um serviço também adiciona capacidade de serviço ao sistema.",
+    "answer": "Verdadeiro",
+    "explanation": "A auto-escalabilidade é uma característica marcante das arquiteturas P2P. Em aplicações como a partilha de ficheiros, cada par (peer) que descarrega um ficheiro também contribui com a sua largura de banda de upload para distribuir o ficheiro a outros pares, aumentando a capacidade total do sistema à medida que a procura cresce. [1]"
+  },
+  {
+    "question": "Em uma sessão de comunicação P2P, como no BitTorrent, um mesmo processo nunca pode atuar simultaneamente como cliente e servidor.",
+    "answer": "Falso",
+    "explanation": "Em aplicações P2P, um processo frequentemente atua como cliente e servidor. No contexto de uma sessão específica, o par que inicia o pedido de um pedaço de ficheiro (chunk) é o cliente, e o que o envia é o servidor. No entanto, o mesmo par pode estar a descarregar chunks (atuando como cliente) de alguns pares e a enviar chunks (atuando como servidor) para outros ao mesmo tempo. [1]"
+  },
+  {
+    "question": "Para que um processo em um host possa enviar uma mensagem para um processo em outro host, basta conhecer o endereço IP do host de destino.",
+    "answer": "Falso",
+    "explanation": "Além do endereço IP do host de destino, que identifica a máquina na rede, é necessário um identificador para o processo específico em execução nessa máquina. Esse identificador é o número da porta (port number). A combinação do endereço IP e do número da porta é necessária para endereçar unicamente um socket de um processo na Internet. [1]"
+  },
+  {
+    "question": "O protocolo UDP (User Datagram Protocol) oferece um serviço de transporte confiável e orientado à conexão, garantindo que todos os pacotes cheguem em ordem e sem perdas.",
+    "answer": "Falso",
+    "explanation": "O UDP oferece um serviço de transporte sem conexão e não confiável ('best-effort'). Ele não garante a entrega, a ordem ou a integridade dos pacotes. Sua vantagem é a baixa sobrecarga (overhead), tornando-o adequado para aplicações sensíveis ao tempo, como streaming de vídeo ou jogos online, que podem tolerar alguma perda de pacotes. [1]"
+  },
+  {
+    "question": "O TCP (Transmission Control Protocol) fornece um serviço de controle de congestionamento, que ajusta a taxa de envio de dados para evitar sobrecarregar a rede.",
+    "answer": "Verdadeiro",
+    "explanation": "O controle de congestionamento é um serviço crucial fornecido pelo TCP. Ele monitora a rede para detectar sinais de congestionamento (como perda de pacotes ou aumento do atraso) e reduz a taxa de transmissão do remetente para aliviar a carga. Isso ajuda a garantir a estabilidade e a partilha justa dos recursos da rede. [1]"
+  },
+  {
+    "question": "A tecnologia de acesso residencial DSL (Digital Subscriber Line) utiliza a infraestrutura de fibra ótica para fornecer internet de alta velocidade às residências.",
+    "answer": "Falso",
+    "explanation": "A tecnologia DSL utiliza a infraestrutura de linhas telefónicas de cobre existentes para transmitir dados. Ela opera em frequências mais altas do que as usadas para chamadas de voz, permitindo o uso simultâneo da linha para telefone e internet. A FTTH (Fiber to the Home) é a tecnologia que utiliza fibra ótica. [1]"
+  },
+  {
+    "question": "Em uma rede de acesso via cabo (HFC), a largura de banda é um recurso compartilhado entre múltiplos usuários em uma vizinhança, o que significa que o desempenho pode degradar durante os horários de pico.",
+    "answer": "Verdadeiro",
+    "explanation": "As redes HFC (Hybrid Fiber Coax) utilizam um meio de transmissão compartilhado (o cabo coaxial na vizinhança). Todos os pacotes enviados pelo 'head end' da operadora de cabo são recebidos por todos os lares, e os usuários competem pela largura de banda de upstream. Esse compartilhamento pode levar a uma diminuição da velocidade individual quando muitos usuários estão ativos simultaneamente. [1]"
+  },
+  {
+    "question": "A tecnologia FTTH (Fiber to the Home) é considerada uma forma de acesso dedicado, pois cada residência recebe uma conexão de fibra ótica direta e exclusiva desde a central da operadora (CO).",
+    "answer": "Falso",
+    "explanation": "Embora a FTTH ofereça um desempenho superior, a arquitetura mais comum, como a PON (Passive Optical Network), utiliza uma fibra compartilhada desde a central da operadora até um divisor ótico (splitter) na vizinhança. A partir do divisor, fibras individuais e dedicadas são direcionadas para cada residência. Portanto, parte do caminho é compartilhado, embora a experiência do usuário se assemelhe a uma conexão dedicada. [1]"
+  },
+  {
+    "question": "Ethernet e WiFi são tecnologias de acesso tipicamente encontradas apenas em ambientes corporativos e universitários, não sendo comuns em redes domésticas.",
+    "answer": "Falso",
+    "explanation": "Embora tenham sido inicialmente populares em ambientes corporativos (enterprise), tanto a Ethernet (para conexões com fio) quanto o WiFi (para conexões sem fio) são hoje tecnologias predominantes em redes domésticas. A maioria dos roteadores domésticos modernos combina um modem de banda larga (DSL ou cabo) com um switch Ethernet e um ponto de acesso WiFi. [1]"
+  },
+  {
+    "question": "Meios físicos guiados, como a fibra ótica, guiam as ondas eletromagnéticas ao longo de um meio sólido, enquanto meios não guiados, como o espectro de rádio, propagam as ondas na atmosfera.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta é a distinção fundamental entre os dois tipos de meios físicos. Meios guiados (fio de cobre, cabo coaxial, fibra ótica) fornecem um caminho físico para o sinal. Meios não guiados (espectro de rádio usado em WiFi, 4G/5G, e satélite) transmitem sinais pelo espaço livre, sem um condutor físico. [1]"
+  },
+  {
+    "question": "O cabo de par trançado de cobre é o meio guiado mais caro e de maior desempenho, sendo preferido para links de longa distância e transoceânicos em detrimento da fibra ótica.",
+    "answer": "Falso",
+    "explanation": "O cabo de par trançado é o meio guiado menos caro e mais comum, mas a fibra ótica oferece um desempenho muito superior em termos de taxa de bits, imunidade a interferências e baixa atenuação, tornando-a o meio preferido para links de longa distância (long-haul) e a espinha dorsal da Internet. [1]"
+  },
+  {
+    "question": "A transmissão 'store-and-forward' em um switch de pacotes significa que o switch começa a transmitir os bits de um pacote para o link de saída assim que eles chegam, sem esperar pelo pacote inteiro.",
+    "answer": "Falso",
+    "explanation": "A transmissão 'store-and-forward' exige que o switch de pacotes receba (armazene) o pacote inteiro antes de poder iniciar a transmissão (encaminhamento) do primeiro bit para o link de saída. Isso é necessário para que o switch possa verificar a integridade do pacote (por exemplo, via checksum) e determinar o destino correto a partir do cabeçalho completo. [1]"
+  },
+  {
+    "question": "O atraso de enfileiramento (queuing delay) em um roteador é um valor fixo e previsível, independente do nível de tráfego na rede.",
+    "answer": "Falso",
+    "explanation": "O atraso de enfileiramento é a única componente do atraso total que é variável e depende do nível de congestionamento da rede. Ele ocorre quando um pacote chega a um link de saída que já está ocupado transmitindo outro pacote. Se a taxa de chegada de pacotes excede a taxa de transmissão do link, a fila cresce, e com ela o atraso. [1]"
+  },
+  {
+    "question": "A perda de pacotes em uma rede ocorre quando um pacote chega a um roteador e seu buffer de saída correspondente está completamente cheio.",
+    "answer": "Verdadeiro",
+    "explanation": "Os roteadores têm buffers (filas) de memória finita para cada link de saída. Se a taxa de chegada de pacotes para um link de saída excede consistentemente a capacidade de transmissão desse link, o buffer pode encher. Um pacote que chega e encontra o buffer cheio será descartado (dropped), resultando em uma perda de pacote. [1]"
+  },
+  {
+    "question": "Em uma rede de comutação de circuitos, os recursos de rede (como largura de banda) são alocados sob demanda, tornando-a mais eficiente para tráfego de dados em rajadas (bursty) do que a comutação de pacotes.",
+    "answer": "Falso",
+    "explanation": "A afirmação descreve a comutação de pacotes. Na comutação de circuitos, os recursos (buffers, taxa de transmissão do link) são reservados para a duração da sessão de comunicação, criando um 'circuito' dedicado. Isso garante uma taxa constante, mas é ineficiente para tráfego em rajadas, pois os recursos ficam ociosos durante os períodos de silêncio. A comutação de pacotes é que aloca recursos sob demanda. [1]"
+  },
+  {
+    "question": "O multiplexing por divisão de frequência (FDM) e o multiplexing por divisão de tempo (TDM) são técnicas usadas para implementar circuitos em uma rede de comutação de pacotes.",
+    "answer": "Falso",
+    "explanation": "FDM e TDM são técnicas de multiplexação usadas para implementar múltiplos circuitos em um único link físico em redes de comutação de circuitos. O FDM divide o espectro de frequência do link, enquanto o TDM divide o tempo em slots, alocando uma fatia de frequência ou um slot de tempo para cada conexão. [1]"
+  },
+  {
+    "question": "Uma das principais desvantagens da comutação de circuitos é o desperdício de recursos, pois um circuito dedicado permanece alocado mesmo durante os períodos de silêncio na comunicação.",
+    "answer": "Verdadeiro",
+    "explanation": "Na comutação de circuitos, a capacidade do link (seja uma faixa de frequência em FDM ou slots de tempo em TDM) é reservada exclusivamente para uma conexão durante toda a sua duração. Se os comunicantes não estão a transmitir dados (por exemplo, silêncio numa chamada de voz), esses recursos alocados ficam inutilizados e não podem ser aproveitados por outras conexões, o que representa uma ineficiência significativa. [1]"
+  },
+  {
+    "question": "A Internet é estruturada como uma única rede global, gerenciada por uma única entidade, sem a necessidade de interconectar diferentes Provedores de Serviços de Internet (ISPs).",
+    "answer": "Falso",
+    "explanation": "A Internet é uma 'rede de redes'. Ela é composta por dezenas de milhares de redes (ISPs) interconectadas. Essas redes são hierarquicamente organizadas em ISPs de acesso, regionais e de nível 1 (tier-1). A interconexão entre eles ocorre através de pontos de troca de tráfego (IXPs) e acordos de peering, formando a rede global. [1]"
+  },
+  {
+    "question": "Um Ponto de Troca de Tráfego da Internet (IXP) é um local físico onde múltiplos ISPs se conectam para trocar tráfego diretamente entre si, sem precisar passar por um ISP de nível superior.",
+    "answer": "Verdadeiro",
+    "explanation": "Um IXP é uma infraestrutura física (geralmente um ou mais switches de alta velocidade num mesmo local) que permite que diferentes ISPs interconectem as suas redes. Ao fazer 'peering' num IXP, os ISPs podem trocar tráfego destinado às redes uns dos outros de forma mais eficiente e económica do que enviando esse tráfego através de um provedor de trânsito de nível superior. [1]"
+  },
+  {
+    "question": "O atraso de transmissão de um pacote de tamanho L sobre um link com taxa R é calculado pela fórmula $L/R$ e depende da distância física do link.",
+    "answer": "Falso",
+    "explanation": "O atraso de transmissão ($d_{trans} = L/R$) é o tempo necessário para empurrar todos os bits do pacote para o link. Ele depende do tamanho do pacote (L) e da taxa de transmissão do link (R), mas é independente da distância física do link. O atraso que depende da distância é o atraso de propagação. [1]"
+  },
+  {
+    "question": "O atraso de propagação de um bit em um link depende da distância do link e da velocidade de propagação do meio, mas não depende da taxa de transmissão do link.",
+    "answer": "Verdadeiro",
+    "explanation": "O atraso de propagação ($d_{prop} = d/s$) é o tempo que um bit leva para viajar do início ao fim do link. Ele é determinado pela distância física (d) e pela velocidade de propagação do sinal no meio (s), que é próxima da velocidade da luz. A taxa de transmissão (largura de banda) do link não afeta esse tempo de viagem. [1]"
+  },
+  {
+    "question": "A intensidade de tráfego em um link, definida como $La/R$ (onde L é o tamanho do pacote, a é a taxa de chegada e R é a taxa de transmissão), pode ser maior que 1 indefinidamente sem causar perda de pacotes, desde que o buffer do roteador seja grande o suficiente.",
+    "answer": "Falso",
+    "explanation": "Se a intensidade de tráfego for maior que 1, a taxa de chegada de bits excede a capacidade de transmissão do link. Isso fará com que a fila de pacotes no buffer cresça indefinidamente. Como os buffers dos roteadores são finitos, eles eventualmente transbordarão, causando perda de pacotes. Uma intensidade de tráfego $> 1$ não é sustentável. [1]"
+  },
+  {
+    "question": "A vazão (throughput) de uma transferência de arquivo entre dois hosts é sempre igual à taxa de transmissão do link mais rápido no caminho entre eles.",
+    "answer": "Falso",
+    "explanation": "A vazão de uma transferência de ponta a ponta é limitada pelo link mais lento no caminho, conhecido como 'gargalo' (bottleneck link). A taxa de transferência efetiva não pode ser maior do que a capacidade do elo mais fraco da cadeia de comunicação. [1]"
+  },
+  {
+    "question": "A arquitetura em camadas, como o modelo de 5 camadas da Internet, é utilizada para aumentar a complexidade do projeto de redes, exigindo que cada camada conheça os detalhes de implementação de todas as outras camadas.",
+    "answer": "Falso",
+    "explanation": "A arquitetura em camadas é utilizada para gerenciar e reduzir a complexidade. Ela divide o sistema de rede em partes menores e mais gerenciáveis (camadas). Cada camada fornece serviços para a camada superior e utiliza os serviços da camada inferior, ocultando os detalhes de sua própria implementação. Isso promove a modularidade e facilita a manutenção e a evolução do sistema. [1]"
+  },
+  {
+    "question": "O processo de encapsulamento envolve a adição de um cabeçalho por cada camada do protocolo à medida que os dados descem na pilha de protocolos do remetente.",
+    "answer": "Verdadeiro",
+    "explanation": "No encapsulamento, cada camada pega a unidade de dados da camada superior (seu payload) e adiciona suas próprias informações de controle em um cabeçalho. Assim, uma mensagem da camada de aplicação é encapsulada em um segmento de transporte (com cabeçalho de transporte), que é encapsulado em um datagrama de rede (com cabeçalho de rede), e assim por diante. [1]"
+  },
+  {
+    "question": "Um roteador, sendo um dispositivo da camada de rede, precisa processar todas as cinco camadas da pilha de protocolos da Internet para encaminhar um datagrama.",
+    "answer": "Falso",
+    "explanation": "Um roteador opera principalmente nas três primeiras camadas: Física, Enlace e Rede. Ele recebe um quadro (camada 2), desencapsula-o para obter o datagrama (camada 3), examina o cabeçalho IP para tomar uma decisão de encaminhamento e, em seguida, encapsula o datagrama em um novo quadro para o próximo link. Ele não processa as camadas de Transporte ou Aplicação. [1]"
+  },
+  {
+    "question": "Um ataque de negação de serviço (DoS) do tipo 'bandwidth flooding' visa explorar uma vulnerabilidade específica em um software de servidor para travá-lo com apenas alguns pacotes maliciosos.",
+    "answer": "Falso",
+    "explanation": "A descrição corresponde a um 'vulnerability attack'. Um ataque de 'bandwidth flooding' visa sobrecarregar o link de acesso do alvo com um dilúvio de pacotes, legítimos ou não, de modo a congestionar o link e impedir que o tráfego legítimo chegue ao servidor. [1]"
+  },
+  {
+    "question": "Um 'packet sniffer' é uma ferramenta ativa que injeta pacotes na rede para testar vulnerabilidades, sendo facilmente detectável.",
+    "answer": "Falso",
+    "explanation": "Um 'packet sniffer' é um receptor passivo que captura uma cópia de cada pacote que passa por um determinado ponto da rede. Por ser passivo (apenas 'escuta' sem transmitir), é muito difícil de detectar. Ele é usado para analisar tráfego e pode ser usado maliciosamente para capturar informações sensíveis, como senhas. [1]"
+  },
+  {
+    "question": "O IP spoofing é a capacidade de um invasor criar um pacote IP com um endereço de origem falso, o que pode ser usado para mascarar a identidade do invasor ou para realizar outros tipos de ataques.",
+    "answer": "Verdadeiro",
+    "explanation": "IP spoofing é a prática de falsificar o endereço IP de origem em um pacote. A arquitetura original da Internet, baseada em confiança, não validava estritamente o endereço de origem, permitindo essa técnica. Ela é usada para ocultar a origem de ataques DoS ou para enganar sistemas que baseiam a autenticação no endereço IP de origem. [1]"
+  },
+  {
+    "question": "A arquitetura original da Internet foi projetada com segurança como prioridade máxima, baseada em um modelo de 'usuários mutuamente desconfiados', o que explica sua robustez atual contra ataques.",
+    "answer": "Falso",
+    "explanation": "A arquitetura original da Internet foi baseada em um modelo de 'um grupo de usuários mutuamente confiantes conectados a uma rede transparente'. A segurança não era uma preocupação principal. Muitas das vulnerabilidades atuais, como a facilidade de realizar IP spoofing, são um legado direto dessa filosofia de design inicial. [1]"
+  },
+  {
+    "question": "A comutação de pacotes foi desenvolvida como uma alternativa à comutação de circuitos, sendo mais adequada para o tráfego 'bursty' (em rajadas) típico de computadores.",
+    "answer": "Verdadeiro",
+    "explanation": "A comutação de circuitos, usada na telefonia, é ideal para fluxos de dados a uma taxa constante, mas ineficiente para o tráfego de computadores, que alterna entre períodos de atividade e inatividade. A comutação de pacotes foi inventada para compartilhar os recursos da rede de forma mais eficiente, alocando-os apenas quando os dados precisam ser enviados. [1]"
+  },
+  {
+    "question": "O TCP e o UDP são ambos protocolos da camada de aplicação que fornecem serviços diretamente aos usuários finais.",
+    "answer": "Falso",
+    "explanation": "TCP e UDP são protocolos da camada de transporte (Camada 4). Eles fornecem serviços de comunicação entre processos para os protocolos da camada de aplicação (como HTTP, SMTP, DNS), mas não são eles próprios protocolos de aplicação. [1]"
+  },
+  {
+    "question": "O desenvolvimento da World Wide Web por Tim Berners-Lee foi o evento que deu início à criação da ARPANET nos anos 1960.",
+    "answer": "Falso",
+    "explanation": "A ARPANET, precursora da Internet, foi desenvolvida a partir do final dos anos 1960. A World Wide Web (incluindo HTTP e HTML) foi inventada por Tim Berners-Lee muito mais tarde, por volta de 1989-1991, e foi um dos fatores que impulsionou a 'explosão da Internet' nos anos 1990, mas não sua criação inicial. [1]"
+  },
+  {
+    "question": "A arquitetura de uma aplicação de rede, como cliente-servidor ou P2P, é definida pelos protocolos do núcleo da rede e não pode ser escolhida pelo desenvolvedor da aplicação.",
+    "answer": "Falso",
+    "explanation": "A arquitetura da aplicação é projetada pelo desenvolvedor e dita como a aplicação é estruturada sobre os vários sistemas finais. O desenvolvedor escolhe entre paradigmas como cliente-servidor ou P2P com base nos requisitos da aplicação. A arquitetura da rede (como a pilha de 5 camadas da Internet) é fixa e fornece os serviços de transporte sobre os quais a aplicação é construída. [1]"
+  },
+  {
+    "question": "Em um data center que serve uma aplicação popular, um único host servidor é geralmente suficiente para lidar com todas as requisições dos clientes, graças à eficiência da arquitetura cliente-servidor.",
+    "answer": "Falso",
+    "explanation": "Para aplicações populares, um único servidor é rapidamente sobrecarregado. Por isso, grandes serviços utilizam data centers com centenas ou milhares de hosts. Esses hosts trabalham em conjunto para criar um 'servidor virtual' poderoso e escalável, capaz de lidar com um volume massivo de requisições. [1]"
+  },
+  {
+    "question": "A principal desvantagem da arquitetura P2P é a sua dificuldade em escalar, pois a adição de mais pares aumenta a carga sobre um servidor central.",
+    "answer": "Falso",
+    "explanation": "A arquitetura P2P não depende de um servidor central, e sua principal vantagem é justamente a escalabilidade. A desvantagem mencionada é característica da arquitetura cliente-servidor. Em P2P, mais pares significam mais recursos disponíveis, levando à auto-escalabilidade. Os desafios do P2P estão mais relacionados à segurança, desempenho em um ambiente descentralizado e confiabilidade. [1]"
+  },
+  {
+    "question": "Um processo que inicia a comunicação em uma sessão é sempre rotulado como 'cliente', enquanto o processo que aguarda para ser contatado é o 'servidor'.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta é a definição formal de cliente e servidor no contexto de uma sessão de comunicação. O iniciador da comunicação é o cliente, e o processo que está 'escutando' e esperando por uma conexão é o servidor. Isso se aplica mesmo em arquiteturas P2P, onde um par atua como cliente ao solicitar um dado e como servidor ao fornecê-lo. [1]"
+  },
+  {
+    "question": "Uma aplicação que requer garantias de tempo, mas pode tolerar alguma perda de dados, como telefonia via IP, se beneficiaria mais dos serviços do TCP do que do UDP.",
+    "answer": "Falso",
+    "explanation": "Aplicações sensíveis ao tempo (timing-sensitive) e tolerantes a perdas (loss-tolerant) são mais adequadas para o UDP. O TCP, com seus mecanismos de retransmissão para garantir a entrega de dados, pode introduzir atrasos significativos (jitter) que prejudicam a experiência em tempo real. O UDP, por não ter esses mecanismos, oferece menor latência. [1]"
+  },
+  {
+    "question": "O protocolo HTTP é considerado 'stateless' (sem estado), o que significa que o servidor não armazena nenhuma informação sobre as requisições passadas de um cliente.",
+    "answer": "Verdadeiro",
+    "explanation": "Por padrão, cada requisição HTTP é tratada de forma independente pelo servidor. O servidor não retém nenhum contexto ou estado de requisições anteriores do mesmo cliente. Essa simplicidade ajuda na escalabilidade dos servidores web. Mecanismos como os cookies foram criados para adicionar estado às sessões HTTP quando necessário. [1]"
+  },
+  {
+    "question": "Com conexões HTTP persistentes, um cliente pode enviar múltiplas requisições para o mesmo servidor através de uma única conexão TCP, reduzindo a latência associada à abertura de novas conexões.",
+    "answer": "Verdadeiro",
+    "explanation": "As conexões persistentes, padrão no HTTP/1.1, permitem que a conexão TCP permaneça aberta após uma resposta do servidor. Isso permite que o cliente envie requisições subsequentes para objetos na mesma página (como imagens) sem incorrer no overhead do handshake TCP de três vias para cada objeto, melhorando significativamente o desempenho. [1]"
+  },
+  {
+    "question": "A linha de requisição de uma mensagem HTTP GET inclui o método, a URL do objeto e a versão do HTTP, mas o corpo da mensagem é sempre vazio.",
+    "answer": "Verdadeiro",
+    "explanation": "Uma mensagem de requisição GET é usada para solicitar um recurso. A linha de requisição contém o método ('GET'), a URL do recurso e a versão do protocolo (ex: 'HTTP/1.1'). O método GET não envia dados no corpo da mensagem; quaisquer parâmetros são geralmente passados na própria URL. O corpo da mensagem é usado por métodos como o POST. [1]"
+  },
+  {
+    "question": "Um código de status HTTP na faixa 4xx, como '404 Not Found', indica que o servidor encontrou um erro interno e não conseguiu processar uma requisição válida.",
+    "answer": "Falso",
+    "explanation": "Códigos de status na faixa 4xx indicam um erro do lado do cliente. '404 Not Found' significa que o cliente solicitou um recurso que não existe no servidor. Códigos na faixa 5xx, como '500 Internal Server Error', indicam um erro do lado do servidor ao tentar processar uma requisição aparentemente válida. [1]"
+  },
+  {
+    "question": "O cabeçalho 'Host:' em uma requisição HTTP/1.1 é opcional e usado apenas para fins de depuração.",
+    "answer": "Falso",
+    "explanation": "O cabeçalho 'Host:' é obrigatório em todas as requisições HTTP/1.1. Ele especifica o nome de domínio do servidor para o qual a requisição está sendo enviada. Isso é crucial porque permite que um único servidor web com um único endereço IP hospede múltiplos websites (hospedagem virtual). [1]"
+  },
+  {
+    "question": "Um web cache (ou servidor proxy) pode satisfazer uma requisição de um cliente sem contatar o servidor de origem, se tiver uma cópia recente do objeto solicitado.",
+    "answer": "Verdadeiro",
+    "explanation": "O web caching funciona armazenando cópias de objetos (como páginas HTML e imagens) que passaram por ele. Quando uma nova requisição para um objeto armazenado chega, o cache pode responder diretamente ao cliente, o que reduz o tempo de resposta para o cliente e diminui o tráfego na rede de acesso à Internet da instituição. [1]"
+  },
+  {
+    "question": "O mecanismo de GET condicional do HTTP permite que um cache verifique com o servidor de origem se sua cópia de um objeto ainda é válida, sem precisar baixar o objeto novamente se ele não mudou.",
+    "answer": "Verdadeiro",
+    "explanation": "Um GET condicional é uma requisição HTTP que inclui um cabeçalho 'If-Modified-Since'. O cliente (ou cache) envia a data da última modificação da sua cópia. Se o objeto no servidor não foi modificado desde essa data, o servidor responde com '304 Not Modified' e um corpo vazio, economizando largura de banda. O cache pode então usar sua cópia local. [1]"
+  },
+  {
+    "question": "O HTTP/2 introduziu o 'server push' para permitir que o cliente solicite múltiplos objetos em paralelo sobre uma única conexão TCP.",
+    "answer": "Falso",
+    "explanation": "O 'server push' do HTTP/2 permite que o servidor envie objetos para o cliente antes que o cliente os solicite explicitamente. Por exemplo, ao enviar uma página HTML, o servidor pode 'empurrar' arquivos CSS e JavaScript associados, antecipando que o navegador irá precisar deles. A capacidade de enviar múltiplas requisições/respostas em paralelo sobre uma única conexão TCP é chamada de multiplexação. [1]"
+  },
+  {
+    "question": "O protocolo SMTP é um protocolo de 'puxar' (pull), usado pelo cliente de e-mail para baixar mensagens da sua caixa de correio no servidor.",
+    "answer": "Falso",
+    "explanation": "O SMTP (Simple Mail Transfer Protocol) é um protocolo de 'empurrar' (push). Ele é usado para transferir (empurrar) e-mails do cliente de e-mail do remetente para o seu servidor de e-mail, e do servidor de e-mail do remetente para o servidor de e-mail do destinatário. Protocolos como POP3 e IMAP são protocolos de 'puxar', usados para recuperar e-mails do servidor. [1]"
+  },
+  {
+    "question": "Uma transferência de e-mail via SMTP entre dois servidores ocorre em três fases: handshake, transferência de mensagens e fechamento.",
+    "answer": "Verdadeiro",
+    "explanation": "A sessão SMTP segue um processo bem definido. Primeiro, ocorre o handshake, onde o cliente SMTP estabelece uma conexão TCP com o servidor e ambos se apresentam (usando comandos como HELO/EHLO). Em seguida, ocorre a transferência de uma ou mais mensagens (usando comandos como MAIL FROM, RCPT TO, DATA). Finalmente, a conexão é fechada (usando o comando QUIT). [1]"
+  },
+  {
+    "question": "O protocolo POP3 (Post Office Protocol 3) é projetado para manter todas as mensagens e pastas de e-mail sincronizadas em múltiplos dispositivos, espelhando o estado do servidor.",
+    "answer": "Falso",
+    "explanation": "A descrição corresponde ao IMAP (Internet Message Access Protocol). O POP3 é um protocolo de acesso a e-mail muito mais simples, geralmente projetado para baixar as mensagens do servidor para um único cliente e, em seguida, apagá-las do servidor. Ele não mantém o estado (como pastas ou status de lido/não lido) sincronizado entre o servidor e múltiplos clientes. [1]"
+  },
+  {
+    "question": "O IMAP permite que um usuário crie pastas e organize suas mensagens diretamente no servidor de e-mail, e essas alterações são visíveis de qualquer cliente que acesse a conta.",
+    "answer": "Verdadeiro",
+    "explanation": "O IMAP (Internet Message Access Protocol) mantém todas as mensagens e pastas no servidor. Isso permite que os usuários acessem e gerenciem seus e-mails de múltiplos dispositivos (desktop, smartphone, webmail) e mantenham um estado consistente e sincronizado em todos eles, pois todas as operações são realizadas no servidor. [1]"
+  },
+  {
+    "question": "O DNS (Domain Name System) utiliza um banco de dados centralizado e único para armazenar todos os mapeamentos de nomes de host para endereços IP, garantindo consistência global.",
+    "answer": "Falso",
+    "explanation": "O DNS utiliza um banco de dados distribuído e hierárquico. Um banco de dados centralizado não seria escalável, seria um ponto único de falha e criaria um gargalo de tráfego. Em vez disso, a responsabilidade pelo mapeamento é distribuída entre muitos servidores DNS (raiz, TLD, autoritativos) organizados em uma hierarquia. [1]"
+  },
+  {
+    "question": "Um registro DNS do tipo A (Address) é usado para mapear um nome de host para seu endereço IPv4 correspondente.",
+    "answer": "Verdadeiro",
+    "explanation": "O registro de recurso (RR) do tipo A é o tipo mais comum e fundamental no DNS. Ele contém o mapeamento direto de um nome de host (ex: www.google.com) para o seu endereço IP de 32 bits na versão 4 (IPv4) (ex: 142.250.218.36). [1]"
+  },
+  {
+    "question": "Um registro DNS do tipo MX (Mail eXchanger) especifica o endereço IP direto do servidor de e-mail para um domínio.",
+    "answer": "Falso",
+    "explanation": "Um registro MX mapeia um nome de domínio (ex: gmail.com) para o nome canônico do servidor de e-mail responsável por esse domínio (ex: smtp.google.com), não diretamente para o seu endereço IP. Para encontrar o endereço IP, uma consulta DNS subsequente para um registro A do nome canônico do servidor de e-mail é necessária. [1]"
+  },
+  {
+    "question": "Uma consulta DNS recursiva ocorre quando o servidor DNS local, ao não saber a resposta, contata outros servidores DNS em nome do cliente até obter a resposta final e devolvê-la ao cliente.",
+    "answer": "Verdadeiro",
+    "explanation": "Numa consulta recursiva, o trabalho de resolução é delegado ao servidor DNS. O cliente envia a consulta ao seu servidor DNS local, que assume a responsabilidade de percorrer a hierarquia DNS (raiz, TLD, autoritativo) para encontrar o mapeamento e, em seguida, retorna a resposta final diretamente ao cliente. [1]"
+  },
+  {
+    "question": "O TTL (Time-to-Live) em um registro DNS especifica por quanto tempo um pacote pode viajar na rede antes de ser descartado.",
+    "answer": "Falso",
+    "explanation": "O TTL em um registro DNS especifica por quanto tempo um resolvedor DNS (como um servidor DNS local) pode manter esse registro em seu cache. O campo que limita o tempo de vida de um pacote na rede é o campo TTL no cabeçalho IP. São conceitos diferentes com o mesmo nome. [1]"
+  },
+  {
+    "question": "Na distribuição de arquivos P2P com BitTorrent, um 'tracker' é um servidor central que armazena e distribui o arquivo completo para todos os pares.",
+    "answer": "Falso",
+    "explanation": "O 'tracker' no BitTorrent não armazena o arquivo. Sua função é manter uma lista dos pares (peers) que estão participando da distribuição de um determinado arquivo ('torrent'). Quando um novo par se junta, ele contata o tracker para obter uma lista de outros pares dos quais pode começar a baixar pedaços (chunks) do arquivo. [1]"
+  },
+  {
+    "question": "O mecanismo 'tit-for-tat' do BitTorrent incentiva os pares a contribuírem com upload, dando prioridade de download àqueles que estão enviando dados a uma taxa mais alta.",
+    "answer": "Verdadeiro",
+    "explanation": "O 'tit-for-tat' é um mecanismo de incentivo crucial. Um par prioriza o envio de chunks para os pares que lhe forneceram chunks na maior taxa. Isso cria um sistema onde a cooperação (fazer upload) é recompensada com um serviço melhor (downloads mais rápidos), desencorajando o 'free-riding' (apenas baixar sem enviar). [1]"
+  },
+  {
+    "question": "DASH (Dynamic Adaptive Streaming over HTTP) permite que um cliente de vídeo altere a qualidade do vídeo que está recebendo em tempo real, com base na largura de banda de rede disponível.",
+    "answer": "Verdadeiro",
+    "explanation": "No DASH, o vídeo é codificado em várias versões com diferentes taxas de bits (qualidades) e dividido em segmentos. O cliente monitora a largura de banda da rede e solicita o próximo segmento da versão de qualidade mais apropriada. Se a largura de banda diminui, ele solicita um segmento de menor qualidade para evitar pausas (buffering), e vice-versa. [1]"
+  },
+  {
+    "question": "Uma CDN (Content Distribution Network) melhora o desempenho da entrega de conteúdo ao centralizar todos os vídeos e páginas web em um único data center massivo para otimizar o armazenamento.",
+    "answer": "Falso",
+    "explanation": "Uma CDN funciona de forma oposta: ela descentraliza o conteúdo. Ela distribui cópias do conteúdo em múltiplos servidores geograficamente dispersos (servidores de borda ou 'edge servers'). Um usuário é direcionado para o servidor mais próximo dele, o que reduz a latência e a carga no servidor de origem, melhorando o desempenho da entrega. [1]"
+  },
+  {
+    "question": "A filosofia 'enter deep' de uma CDN envolve colocar muitos clusters de servidores menores em todo o mundo, próximos das redes de acesso dos usuários, para minimizar a distância entre o usuário e o conteúdo.",
+    "answer": "Verdadeiro",
+    "explanation": "A filosofia 'enter deep' (entrar profundamente) foca em uma ampla distribuição geográfica de clusters de servidores. O objetivo é reduzir a latência e os saltos na rede, colocando o conteúdo o mais perto possível do usuário final, dentro das redes dos ISPs de acesso. [1]"
+  },
+  {
+    "question": "Na programação de sockets com UDP, o cliente deve primeiro estabelecer uma conexão formal com o servidor usando um handshake de três vias antes de enviar dados.",
+    "answer": "Falso",
+    "explanation": "O UDP é um protocolo sem conexão. Não há um handshake ou estabelecimento de conexão. O cliente simplesmente cria um pacote (datagrama), anexa o endereço de destino (IP e porta) e o envia para a rede. O servidor recebe o datagrama sem ter uma conexão pré-estabelecida. [1]"
+  },
+  {
+    "question": "Na programação de sockets com TCP, um único socket no lado do servidor é usado para aceitar novas conexões e também para trocar dados com todos os clientes conectados simultaneamente.",
+    "answer": "Falso",
+    "explanation": "Um servidor TCP usa um 'socket de boas-vindas' (listening socket) que apenas 'escuta' por pedidos de conexão. Quando um cliente se conecta, o servidor cria um novo socket de conexão, dedicado exclusivamente à comunicação com aquele cliente específico. Isso permite que o servidor lide com múltiplos clientes simultaneamente, cada um em seu próprio socket de conexão. [1]"
+  },
+  {
+    "question": "A camada de aplicação da Internet é implementada tanto nos sistemas finais quanto nos roteadores do núcleo da rede para garantir o processamento de ponta a ponta.",
+    "answer": "Falso",
+    "explanation": "A camada de aplicação é implementada apenas nos sistemas finais (hosts). Os roteadores do núcleo da rede não operam na camada de aplicação; sua função é encaminhar datagramas na camada de rede. Essa filosofia de design mantém o núcleo da rede simples e rápido, e concentra a complexidade e a inteligência das aplicações nas bordas da rede. [1]"
+  },
+  {
+    "question": "O atraso de processamento em um roteador é tipicamente a componente de atraso mais significativa e imprevisível em uma rede congestionada.",
+    "answer": "Falso",
+    "explanation": "O atraso de processamento (verificar erros de bit, determinar o link de saída) é geralmente muito pequeno, na ordem de microssegundos. A componente de atraso mais significativa e imprevisível em uma rede congestionada é o atraso de enfileiramento (queuing delay), que pode variar de quase zero a vários milissegundos ou mais. [1]"
+  },
+  {
+    "question": "Se um pacote viaja por um caminho de N links, o atraso total de transmissão de ponta a ponta é N vezes o atraso de transmissão em um único link, devido ao modelo 'store-and-forward'.",
+    "answer": "Falso",
+    "explanation": "O atraso de transmissão de ponta a ponta para um único pacote sobre N links é a soma dos atrasos de transmissão em cada um dos N links. Se todos os links tiverem a mesma taxa R e o pacote tiver tamanho L, o atraso total de transmissão é $N cdot (L/R)$ apenas se considerarmos o tempo total para o pacote inteiro atravessar todos os N saltos. No entanto, a fórmula para o atraso de ponta a ponta devido à transmissão e propagação é a soma dos atrasos individuais em cada link. O efeito de pipelining de pacotes subsequentes muda o cálculo para múltiplos pacotes. [1]"
+  },
+  {
+    "question": "A camada de enlace de dados é responsável pela comunicação lógica entre hosts, enquanto a camada de transporte é responsável pela comunicação lógica entre processos.",
+    "answer": "Falso",
+    "explanation": "A camada de rede é responsável pela comunicação lógica entre hosts (host-to-host). A camada de transporte estende este serviço para fornecer comunicação lógica entre processos (process-to-process) em execução nesses hosts, usando números de porta para demultiplexação. A camada de enlace é responsável pela transferência de dados entre elementos de rede adjacentes. [1]"
+  },
+  {
+    "question": "O HTTP/1.1 sofre do problema de 'Head-of-Line (HOL) blocking' porque um único pacote TCP perdido pode impedir a entrega de todos os objetos subsequentes solicitados na mesma conexão, mesmo que já tenham chegado.",
+    "answer": "Verdadeiro",
+    "explanation": "O HTTP/1.1 multiplexa requisições em uma única conexão TCP de forma sequencial. Como o TCP garante a entrega em ordem, se um segmento TCP contendo parte de uma resposta se perde, o TCP no receptor não entregará os segmentos subsequentes (mesmo que já tenham chegado) para a aplicação até que o segmento perdido seja retransmitido. Isso bloqueia todas as outras respostas HTTP que estavam na fila. [1]"
+  },
+  {
+    "question": "O registro DNS do tipo CNAME (Canonical Name) é usado para criar um apelido (alias) para um nome de host, mapeando um nome para outro nome canônico.",
+    "answer": "Verdadeiro",
+    "explanation": "Um registro CNAME permite que um nome de host seja um alias para outro nome de host (o nome canônico). Quando um cliente DNS consulta um nome que é um alias, o servidor DNS retorna o registro CNAME, e o cliente deve então iniciar uma nova consulta para o nome canônico para obter o endereço IP. [1]"
+  },
+  {
+    "question": "A principal motivação para a criação de CDNs foi a necessidade de criptografar o tráfego de vídeo na Internet.",
+    "answer": "Falso",
+    "explanation": "A principal motivação para a criação de CDNs foi resolver o problema de escalabilidade e latência na entrega de conteúdo popular. Ao distribuir o conteúdo para servidores mais próximos dos usuários, as CDNs reduzem a distância que os dados precisam viajar, diminuem a carga nos servidores de origem e melhoram a experiência do usuário. A criptografia é uma função importante, mas secundária à otimização da entrega. [1]"
+  },
+  {
+    "question": "A arquitetura de rede de um data center moderno é tipicamente hierárquica para maximizar a largura de banda entre quaisquer dois hosts, independentemente de suas localizações nos racks.",
+    "answer": "Falso",
+    "explanation": "Embora a arquitetura hierárquica tradicional seja escalável em número de hosts, ela cria gargalos de largura de banda. A comunicação entre hosts em racks diferentes precisa subir na hierarquia, e os links nos níveis superiores podem se tornar congestionados, limitando a comunicação host-a-host. Arquiteturas mais modernas, como topologias Clos, são projetadas para fornecer largura de banda mais uniforme. [1]"
+  },
+  {
+    "question": "A camada física é responsável por mover datagramas inteiros de um nó para o próximo na rede.",
+    "answer": "Falso",
+    "explanation": "A camada física é responsável por mover os bits individuais que compõem um quadro (frame) de um nó para o próximo. A camada de enlace de dados (Link Layer) é responsável por mover os quadros inteiros, que encapsulam os datagramas da camada de rede. [1]"
+  },
+  {
+    "question": "O principal objetivo do 'handshake' de três vias do TCP é negociar a taxa de transmissão máxima que será usada durante a conexão.",
+    "answer": "Falso",
+    "explanation": "O principal objetivo do handshake de três vias (SYN, SYN-ACK, ACK) é estabelecer a conexão de forma confiável. Durante este processo, os dois lados sincronizam seus números de sequência iniciais e concordam com os parâmetros da conexão. A taxa de transmissão não é fixada; ela é determinada dinamicamente pelo algoritmo de controle de congestionamento do TCP durante a transferência de dados. [1]"
+  },
+  {
+    "question": "O uso de um servidor de cache da Web (proxy) beneficia apenas o usuário final, reduzindo seu tempo de espera, mas aumenta o tráfego total na rede do provedor de acesso à Internet.",
+    "answer": "Falso",
+    "explanation": "O cache da Web beneficia tanto o usuário final (reduzindo a latência) quanto o provedor de acesso (como uma universidade ou empresa). Ao servir conteúdo a partir do cache local, ele evita que a mesma informação seja baixada várias vezes através do link de acesso à Internet da instituição, reduzindo significativamente o tráfego e os custos com largura de banda. [1]"
+  },
+  {
+    "question": "Na arquitetura de e-mail da Internet, o agente de usuário (por exemplo, Outlook ou Gmail) se comunica diretamente com o agente de usuário do destinatário para entregar uma mensagem.",
+    "answer": "Falso",
+    "explanation": "A comunicação de e-mail é indireta e mediada por servidores de e-mail. O agente de usuário do remetente envia a mensagem para o seu servidor de e-mail. Este servidor de e-mail então se comunica com o servidor de e-mail do destinatário. Finalmente, o agente de usuário do destinatário recupera a mensagem do seu servidor de e-mail. [1]"
+  },
+  {
+    "question": "A política 'rarest first' (o mais raro primeiro) no BitTorrent instrui um par a baixar os pedaços do arquivo que são mais comuns entre seus vizinhos para acelerar o download.",
+    "answer": "Falso",
+    "explanation": "A política 'rarest first' instrui um par a solicitar os pedaços (chunks) que são menos replicados entre seus vizinhos. Essa estratégia ajuda a equalizar a distribuição de todos os pedaços na rede, evitando que pedaços raros se tornem um gargalo e garantindo que o arquivo completo permaneça disponível para todos. [1]"
+  },
+  {
+    "question": "Uma aplicação pode obter um serviço de transferência de dados confiável mesmo usando UDP, desde que a lógica de confiabilidade (como acknowledgements e retransmissões) seja implementada na própria aplicação.",
+    "answer": "Verdadeiro",
+    "explanation": "Embora o UDP não forneça confiabilidade, uma aplicação pode construir seus próprios mecanismos de confiabilidade sobre o UDP. O protocolo QUIC, por exemplo, implementa transferência confiável, controle de congestionamento e segurança sobre o UDP. Isso dá ao desenvolvedor da aplicação mais controle sobre esses mecanismos do que o TCP oferece. [1]"
+  },
+  {
+    "question": "Um roteador de borda (edge router) é o primeiro roteador no caminho de um sistema final para qualquer outro sistema final distante na Internet.",
+    "answer": "Verdadeiro",
+    "explanation": "O roteador de borda é o ponto de conexão entre uma rede de acesso (como uma rede doméstica ou universitária) e a rede do provedor de serviços de Internet (ISP). É o primeiro salto que um pacote dá ao sair da rede local em direção à Internet mais ampla. [1]"
+  },
+  {
+    "question": "A principal razão para torcer os pares de fios de cobre em um cabo de par trançado é aumentar a resistência física do cabo.",
+    "answer": "Falso",
+    "explanation": "A principal razão para torcer os pares de fios é reduzir a interferência eletromagnética de pares próximos e de fontes externas. A torção faz com que as interferências em diferentes partes do fio se cancelem mutuamente, melhorando a qualidade do sinal. [1]"
+  },
+  {
+    "question": "O tempo total para enviar P pacotes de tamanho L sobre N links com taxa R, usando comutação de pacotes 'store-and-forward', é sempre igual a P vezes o tempo para enviar um único pacote.",
+    "answer": "Falso",
+    "explanation": "Devido ao pipelining, o tempo total é menor. Enquanto o primeiro pacote está sendo transmitido no segundo link, o segundo pacote pode estar sendo transmitido no primeiro link. O tempo total é aproximadamente o tempo para o primeiro pacote chegar ao destino mais o tempo para os P-1 pacotes restantes saírem do host de origem. A fórmula aproximada é $(N+P-1) cdot L/R$. [1]"
+  },
+  {
+    "question": "Um ISP de Nível 1 (Tier-1) é uma rede que pode alcançar todas as outras redes na Internet sem pagar por trânsito, interconectando-se com outros ISPs de Nível 1 através de acordos de peering.",
+    "answer": "Verdadeiro",
+    "explanation": "ISPs de Nível 1 formam a espinha dorsal (backbone) da Internet. Eles possuem redes globais e não compram trânsito de ninguém. Em vez disso, eles trocam tráfego entre si através de acordos de peering (geralmente sem custos) para fornecer conectividade global a seus clientes (ISPs de níveis inferiores). [1]"
+  },
+  {
+    "question": "A única função da camada de rede é garantir a entrega de pacotes sem erros e na ordem correta.",
+    "answer": "Falso",
+    "explanation": "A camada de rede da Internet (protocolo IP) fornece um serviço 'best-effort' (melhor esforço), que não garante entrega, ordem ou ausência de erros. Suas principais funções são o endereçamento lógico (endereços IP) e o roteamento (determinar o caminho dos pacotes através da rede). A confiabilidade e a ordem são funções da camada de transporte (TCP). [1]"
+  },
+  {
+    "question": "Aplicações como e-mail e transferência de arquivos são consideradas 'elásticas', pois podem tolerar variações na vazão e no atraso da rede.",
+    "answer": "Verdadeiro",
+    "explanation": "Aplicações elásticas, como e-mail, transferência de arquivos e navegação na web, podem funcionar bem com diferentes níveis de vazão. Embora uma vazão maior seja melhor, a aplicação ainda funciona com uma vazão menor, apenas leva mais tempo. Elas não têm requisitos rígidos de tempo, ao contrário de aplicações em tempo real como voz sobre IP. [1]"
+  },
+  {
+    "question": "O método POST do HTTP é usado quando o usuário precisa enviar dados para o servidor, como o preenchimento de um formulário, e esses dados são incluídos no corpo da mensagem de requisição.",
+    "answer": "Verdadeiro",
+    "explanation": "Enquanto o método GET solicita dados de um servidor, o método POST é usado para enviar dados para serem processados pelo servidor (por exemplo, enviar o conteúdo de um formulário ou fazer upload de um arquivo). Os dados enviados são colocados no corpo da entidade da mensagem de requisição HTTP. [1]"
+  },
+  {
+    "question": "O handshake entre cliente e servidor SMTP é realizado usando comandos de texto legíveis por humanos, como 'HELO', 'MAIL FROM' e 'RCPT TO'.",
+    "answer": "Verdadeiro",
+    "explanation": "O SMTP é um protocolo baseado em texto, semelhante ao HTTP. A comunicação entre o cliente e o servidor SMTP é feita através de uma série de comandos e respostas em formato de texto ASCII, o que o torna relativamente fácil de entender e depurar manualmente (por exemplo, usando Telnet). [1]"
+  },
+  {
+    "question": "O sistema DNS pode ser usado para balanceamento de carga, retornando um conjunto de diferentes endereços IP para uma única consulta de nome de host.",
+    "answer": "Verdadeiro",
+    "explanation": "O balanceamento de carga é um serviço importante fornecido pelo DNS. Para um nome de host muito popular, um servidor DNS autoritativo pode ser configurado para retornar uma lista de endereços IP em vez de um único. O servidor geralmente rotaciona a ordem desses endereços a cada resposta, distribuindo as requisições dos clientes entre múltiplos servidores replicados. [1]"
+  },
+  {
+    "question": "O servidor DHCP usa o endereço MAC do cliente, contido no quadro Ethernet da mensagem de requisição DHCP, para enviar a resposta DHCP ACK de volta ao cliente.",
+    "answer": "Verdadeiro",
+    "explanation": "Quando um cliente envia uma mensagem DHCP discover, ele ainda não tem um endereço IP. A mensagem é encapsulada em um quadro Ethernet com o endereço MAC de origem do cliente. O servidor DHCP usa este endereço MAC de origem como o endereço MAC de destino no quadro Ethernet que contém a oferta ou o ACK, garantindo que a resposta chegue ao cliente correto na rede local. [1]"
+  },
+  {
+    "question": "A camada de transporte é a camada mais baixa na pilha de protocolos da Internet, lidando diretamente com o meio físico de transmissão.",
+    "answer": "Falso",
+    "explanation": "A camada mais baixa é a Camada Física (Physical Layer), que lida com a transmissão de bits sobre o meio físico. A Camada de Transporte (Transport Layer) está acima da Camada de Rede e abaixo da Camada de Aplicação, sendo responsável pela comunicação entre processos. [1]"
+  },
+  {
+    "question": "O atraso total de ponta a ponta para um pacote é a soma do atraso de processamento, enfileiramento, transmissão e propagação em cada um dos nós ao longo do caminho.",
+    "answer": "Verdadeiro",
+    "explanation": "O atraso total de ponta a ponta é a acumulação de todos os quatro tipos de atraso em cada roteador e link no caminho do pacote desde a origem até o destino. Cada um desses componentes contribui para o tempo total de viagem do pacote. [1]"
+  },
+  {
+    "question": "A principal diferença entre a arquitetura P2P e cliente-servidor é que a P2P não requer endereços IP para comunicação.",
+    "answer": "Falso",
+    "explanation": "Toda comunicação na Internet, incluindo P2P, requer endereços IP para identificar os hosts. A principal diferença reside na estrutura: cliente-servidor é centralizada, com um servidor sempre ativo servindo clientes, enquanto P2P é descentralizada, com pares se comunicando diretamente entre si sem um servidor intermediário para os dados. [1]"
+  },
+  {
+    "question": "O protocolo TLS (Transport Layer Security) pode ser usado sobre o TCP para fornecer serviços de segurança, como criptografia e autenticação, para aplicações da camada de aplicação.",
+    "answer": "Verdadeiro",
+    "explanation": "O TLS opera como uma camada intermediária entre a camada de aplicação e o TCP. Ele usa os serviços de transporte confiável do TCP para fornecer confidencialidade (criptografia), integridade e autenticação de ponta a ponta. Aplicações como HTTPS (HTTP sobre TLS) são construídas desta forma. [1]"
+  },
+  {
+    "question": "Em uma rede de acesso via cabo (HFC), colisões de pacotes podem ocorrer no canal de downstream (do provedor para o usuário), mas não no canal de upstream (do usuário para o provedor).",
+    "answer": "Falso",
+    "explanation": "A situação é a oposta. O canal de downstream é um canal de broadcast controlado por uma única entidade (o CMTS), então não há colisões. O canal de upstream é um meio compartilhado por múltiplos usuários, e se dois usuários transmitirem ao mesmo tempo, ocorrerá uma colisão. Por isso, um protocolo de acesso múltiplo é necessário para o canal de upstream. [1]"
+  },
+  {
+    "question": "Um switch de camada de enlace (link-layer switch) e um roteador (router) são funcionalmente idênticos, pois ambos tomam decisões de encaminhamento com base nos endereços IP de destino.",
+    "answer": "Falso",
+    "explanation": "Um switch de camada de enlace opera na camada 2 e toma decisões de encaminhamento com base nos endereços MAC contidos nos cabeçalhos dos quadros. Um roteador opera na camada 3 e toma decisões de encaminhamento (roteamento) com base nos endereços IP contidos nos cabeçalhos dos datagramas. Eles operam em camadas diferentes e usam informações de endereçamento diferentes. [1]"
+  },
+  {
+    "question": "A principal vantagem da comutação de pacotes sobre a comutação de circuitos é a sua capacidade de fornecer uma taxa de bits constante e garantida para aplicações em tempo real.",
+    "answer": "Falso",
+    "explanation": "A comutação de circuitos é que fornece uma taxa de bits constante e garantida, pois reserva recursos ao longo de um caminho. A principal vantagem da comutação de pacotes é a sua eficiência no compartilhamento de recursos para tráfego em rajadas, através da multiplexação estatística, mas isso vem ao custo de não haver garantias de desempenho. [1]"
+  },
+  {
+    "question": "O campo 'protocol' no cabeçalho de um datagrama IP é usado pelo sistema operacional do host de destino para determinar a qual processo de aplicação (por exemplo, um navegador web específico) o segmento de transporte deve ser entregue.",
+    "answer": "Falso",
+    "explanation": "O campo 'protocol' no cabeçalho IP indica para qual protocolo da camada de transporte (por exemplo, TCP ou UDP) o segmento deve ser entregue. A entrega para o processo de aplicação correto é feita pela camada de transporte, que usa o número da porta de destino contido no cabeçalho do segmento de transporte para demultiplexação. [1]"
+  },
+  {
+    "question": "Uma mensagem de requisição HTTP pode ser enviada tanto sobre TCP quanto sobre UDP, dependendo da preferência do desenvolvedor da aplicação.",
+    "answer": "Falso",
+    "explanation": "O protocolo HTTP requer um serviço de transporte de dados confiável para garantir que as requisições e respostas cheguem intactas e em ordem. Portanto, o HTTP é projetado para rodar exclusivamente sobre TCP. O uso de UDP exigiria que o próprio HTTP implementasse mecanismos de confiabilidade, o que não faz parte de sua especificação. [1]"
+  },
+  {
+    "question": "O principal objetivo de um servidor DNS autoritativo é armazenar em cache as respostas de outros servidores DNS para acelerar as consultas futuras de seus clientes locais.",
+    "answer": "Falso",
+    "explanation": "A função de cache é tipicamente realizada por servidores DNS locais ou recursivos. Um servidor DNS autoritativo é responsável por manter os registros de recursos (RRs) oficiais para os nomes de host dentro de um domínio específico (por exemplo, o servidor autoritativo para 'google.com' conhece os IPs dos servidores do Google). Ele é a fonte final da verdade para aquele domínio. [1]"
+  },
+  {
+    "question": "No BitTorrent, um par recém-chegado (leech) sem nenhum pedaço do arquivo pode começar a fazer download imediatamente porque o sistema prioriza novos pares para acelerar a distribuição.",
+    "answer": "Falso",
+    "explanation": "Para começar a baixar, um par precisa ter algo para oferecer em troca, devido ao mecanismo 'tit-for-tat'. No entanto, o BitTorrent tem um mecanismo chamado 'optimistic unchoking', onde um par periodicamente escolhe um vizinho aleatório para enviar pedaços, independentemente da taxa de upload desse vizinho. É assim que um novo par obtém seus primeiros pedaços para poder participar do sistema de troca. [1]"
+  },
+  {
+    "question": "O atraso de propagação em um link de fibra ótica transatlântico é significativamente maior do que o atraso de transmissão para um pacote de 1500 bytes em um link de 1 Gbps.",
+    "answer": "Verdadeiro",
+    "explanation": "O atraso de propagação é sobre distância. A uma velocidade de ~2x10^8 m/s, viajar milhares de quilômetros leva dezenas de milissegundos. O atraso de transmissão para 1500 bytes (12000 bits) em um link de 1 Gbps (10^9 bps) é de 12 microssegundos. Claramente, o atraso de propagação domina em links longos (long-fat networks). [1]"
+  },
+  {
+    "question": "A única função da camada de aplicação é a transferência de arquivos entre sistemas finais.",
+    "answer": "Falso",
+    "explanation": "A camada de aplicação suporta uma vasta gama de aplicações de rede, incluindo a web (HTTP), e-mail (SMTP, POP3, IMAP), resolução de nomes (DNS), streaming de vídeo, mensagens instantâneas e muito mais. A transferência de arquivos (FTP) é apenas uma das muitas funções desta camada. [1]"
+  },
+  {
+    "question": "Se dois usuários em uma rede de acesso a cabo (HFC) começarem a baixar um arquivo grande ao mesmo tempo, a vazão de cada um será aproximadamente metade da vazão que teriam se estivessem baixando sozinhos.",
+    "answer": "Verdadeiro",
+    "explanation": "Como o canal de downstream em uma rede HFC é um meio de transmissão compartilhado, a capacidade total do canal é dividida entre todos os usuários ativos. Se dois usuários estiverem realizando downloads pesados, eles competirão pela mesma largura de banda, e a vazão individual de cada um será reduzida. [1]"
+  },
+  {
+    "question": "Um ataque distribuído de negação de serviço (DDoS) é mais difícil de mitigar do que um ataque DoS de uma única fonte porque o tráfego de ataque vem de muitos pontos diferentes, tornando difícil filtrar sem bloquear usuários legítimos.",
+    "answer": "Verdadeiro",
+    "explanation": "Em um ataque DoS de fonte única, um administrador de rede pode simplesmente bloquear o endereço IP de origem. Em um DDoS, o tráfego vem de centenas ou milhares de fontes (muitas vezes de uma botnet de computadores comprometidos), cujos endereços IP são distintos. Bloquear cada fonte individualmente é impraticável e lento, e o tráfego de ataque pode se assemelhar ao tráfego legítimo. [1]"
+  },
+  {
+    "question": "A arquitetura em camadas viola o princípio da modularidade, pois uma alteração na implementação de uma camada requer alterações em todas as outras camadas.",
+    "answer": "Falso",
+    "explanation": "A arquitetura em camadas promove a modularidade. Desde que uma camada continue a fornecer o mesmo serviço para a camada acima e a usar os mesmos serviços da camada abaixo, sua implementação interna pode ser alterada sem afetar o resto do sistema. Por exemplo, um link Ethernet pode ser substituído por um link WiFi (mudança nas camadas 1 e 2) sem que as camadas de rede, transporte ou aplicação precisem ser modificadas. [1]"
+  },
+  {
+    "question": "O UDP é preferível ao TCP para o protocolo DNS porque as consultas DNS são tipicamente pequenas e consistem em uma única requisição seguida por uma única resposta, não necessitando do overhead de estabelecer uma conexão TCP.",
+    "answer": "Verdadeiro",
+    "explanation": "A natureza transacional do DNS (uma consulta, uma resposta) se encaixa perfeitamente no modelo sem conexão do UDP. Estabelecer e encerrar uma conexão TCP para uma troca tão curta introduziria uma latência desnecessária. O UDP permite uma comunicação mais rápida e eficiente para este tipo de aplicação. [1]"
+  },
+  {
+    "question": "O HTTP/2 elimina completamente a necessidade de múltiplas conexões TCP para baixar uma página web complexa, utilizando um mecanismo chamado multiplexação sobre uma única conexão.",
+    "answer": "Verdadeiro",
+    "explanation": "Uma das principais melhorias do HTTP/2 sobre o HTTP/1.1 é a multiplexação. Ele permite que múltiplas requisições e respostas sejam intercaladas em uma única conexão TCP, eliminando o 'head-of-line blocking' da camada de aplicação e a necessidade de os navegadores abrirem múltiplas conexões paralelas para o mesmo servidor para acelerar o carregamento da página. [1]"
+  },
+  {
+    "question": "A principal diferença entre os protocolos de acesso ao e-mail POP3 e IMAP é que o POP3 usa TCP enquanto o IMAP usa UDP.",
+    "answer": "Falso",
+    "explanation": "Tanto o POP3 quanto o IMAP usam TCP como seu protocolo de transporte, pois a recuperação de e-mails requer uma transferência de dados confiável. A principal diferença entre eles está em seu modelo de operação: POP3 é um protocolo de 'download-and-delete' e mantém pouco estado no servidor, enquanto IMAP é um protocolo de acesso online que mantém todo o estado (mensagens, pastas) no servidor. [1]"
+  },
+  {
+    "question": "A hierarquia do DNS foi projetada com um único servidor raiz para simplificar a administração e garantir um ponto central de controle para toda a Internet.",
+    "answer": "Falso",
+    "explanation": "A hierarquia do DNS não possui um único servidor raiz físico. Existem 13 servidores raiz lógicos, identificados pelas letras A a M. Na realidade, cada um desses servidores lógicos é implementado por uma rede replicada de muitos servidores físicos distribuídos geograficamente em todo o mundo. Isso proporciona redundância, tolerância a falhas e distribui a carga de consultas, evitando um ponto único de falha. [1]"
+  },
+  {
+    "question": "Em um sistema DASH, o servidor de vídeo é responsável por monitorar a largura de banda do cliente e decidir qual versão de qualidade do vídeo enviar a seguir.",
+    "answer": "Falso",
+    "explanation": "No DASH, a inteligência está no cliente. O cliente de vídeo (o player no navegador ou aplicativo) é responsável por monitorar as condições da rede (como a largura de banda disponível) e, com base nisso, solicitar o segmento de vídeo da taxa de bits mais apropriada que ele acredita poder baixar a tempo. O servidor simplesmente responde às requisições HTTP do cliente. [1]"
+  },
+  {
+    "question": "Para um programa servidor TCP lidar com múltiplos clientes simultaneamente, ele deve criar um novo processo ou thread para cada conexão de cliente aceita.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta é uma abordagem de design comum para servidores TCP. O processo principal do servidor tem um 'socket de escuta' que aceita novas conexões. Para cada nova conexão, ele cria um novo processo ou thread (que por sua vez cria um novo socket de conexão) para lidar com a comunicação com aquele cliente específico. Isso permite que o processo principal volte a escutar por novas conexões, permitindo a simultaneidade. [1]"
+  },
+  {
+    "question": "O atraso de transmissão em um link de 10 Mbps é 10 vezes menor do que em um link de 1 Mbps para um pacote do mesmo tamanho.",
+    "answer": "Verdadeiro",
+    "explanation": "O atraso de transmissão é inversamente proporcional à taxa de transmissão do link ($d_{trans} = L/R$). Se a taxa de transmissão (R) for 10 vezes maior, o tempo necessário para colocar o mesmo número de bits (L) no link será 10 vezes menor. [1]"
+  },
+  {
+    "question": "A Internet oferece um serviço de transporte que garante uma largura de banda mínima para todas as aplicações.",
+    "answer": "Falso",
+    "explanation": "O modelo de serviço da camada de rede da Internet é o 'best-effort' (melhor esforço), o que significa que ela não oferece garantias sobre largura de banda, atraso ou entrega de pacotes. As aplicações devem se adaptar às condições variáveis da rede. [1]"
+  },
+  {
+    "question": "O corpo de uma mensagem de resposta HTTP nunca pode estar vazio.",
+    "answer": "Falso",
+    "explanation": "O corpo de uma resposta HTTP pode estar vazio em várias situações. Por exemplo, em uma resposta a uma requisição HEAD, que solicita apenas os cabeçalhos. Outro exemplo é uma resposta com o código de status '304 Not Modified', que indica ao cliente para usar sua cópia em cache e, portanto, não precisa reenviar o corpo do objeto. [1]"
+  },
+  {
+    "question": "O SMTP requer que o corpo da mensagem de e-mail seja em ASCII de 7 bits.",
+    "answer": "Verdadeiro",
+    "explanation": "A especificação base do SMTP (RFC 5321) restringe o corpo da mensagem a texto ASCII de 7 bits. Para enviar conteúdo multimídia (como imagens ou anexos) ou texto em outros formatos, são usados padrões de codificação adicionais, como o MIME (Multipurpose Internet Mail Extensions), que codificam os dados binários em texto ASCII antes da transmissão via SMTP. [1]"
+  },
+  {
+    "question": "Um servidor DNS local pode resolver uma consulta para um nome de host sem contatar nenhum outro servidor DNS se o mapeamento já estiver em seu cache.",
+    "answer": "Verdadeiro",
+    "explanation": "O cache é um mecanismo fundamental para a eficiência do DNS. Quando um servidor DNS local recebe uma consulta, ele primeiro verifica seu próprio cache. Se encontrar uma entrada válida (não expirada pelo TTL) para o nome de host solicitado, ele pode retornar a resposta imediatamente, evitando a latência de contatar a hierarquia de servidores DNS. [1]"
+  },
+  {
+    "question": "A principal razão para a existência de múltiplos tipos de meios físicos (cobre, fibra, rádio) é a preferência estética dos administradores de rede.",
+    "answer": "Falso",
+    "explanation": "A escolha do meio físico é uma decisão de engenharia baseada em um trade-off entre custo, desempenho, distância e ambiente. O par trançado é barato e adequado para distâncias curtas (LANs). A fibra ótica é mais cara, mas oferece altíssimas velocidades e é ideal para longas distâncias (backbones). O rádio permite a mobilidade, mas é suscetível a interferências. [1]"
+  },
+  {
+    "question": "A comutação de circuitos é análoga a um sistema de reservas em um restaurante, onde uma mesa é reservada para um grupo durante toda a refeição, independentemente de estarem comendo ou conversando.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta analogia ilustra bem o conceito de reserva de recursos da comutação de circuitos. Assim como a mesa fica reservada e indisponível para outros, mesmo que o grupo não a esteja usando ativamente, um circuito de rede reserva a largura de banda durante toda a sessão, levando a uma potencial ineficiência. [1]"
+  },
+  {
+    "question": "O encapsulamento pode ser comparado ao processo de colocar uma carta (mensagem) em um envelope de escritório (segmento), que por sua vez é colocado em um envelope postal (datagrama) para envio.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta analogia ilustra como cada camada adiciona sua própria 'embalagem' (cabeçalho) com informações de endereçamento e controle relevantes para seu nível. O serviço postal (camada de rede) só precisa ler o endereço externo (cabeçalho IP), ignorando o envelope interno (cabeçalho de transporte) e a carta (dados da aplicação). [1]"
+  },
+  {
+    "question": "O único serviço que o TCP adiciona sobre o IP é a garantia de entrega de dados; ele não oferece controle de fluxo.",
+    "answer": "Falso",
+    "explanation": "O TCP oferece múltiplos serviços além da entrega confiável. Ele também fornece controle de fluxo, para garantir que um remetente rápido não sobrecarregue um receptor lento, e controle de congestionamento, para evitar sobrecarregar a própria rede. [1]"
+  },
+  {
+    "question": "O cabeçalho 'Set-Cookie:' é enviado pelo cliente para o servidor para identificar-se em uma requisição HTTP.",
+    "answer": "Falso",
+    "explanation": "O cabeçalho 'Set-Cookie:' é enviado pelo servidor na sua resposta para criar ou atualizar um cookie no navegador do cliente. O cabeçalho que o cliente envia em requisições subsequentes para se identificar é o 'Cookie:'. [1]"
+  },
+  {
+    "question": "O protocolo IMAP é mais adequado do que o POP3 para usuários que acessam seus e-mails de múltiplos dispositivos, como um laptop e um smartphone.",
+    "answer": "Verdadeiro",
+    "explanation": "Como o IMAP mantém todas as mensagens e a estrutura de pastas no servidor, ele permite que múltiplos clientes acessem a mesma caixa de correio e vejam uma visão consistente e sincronizada. Alterações feitas em um dispositivo (como marcar um e-mail como lido ou movê-lo para uma pasta) são refletidas em todos os outros. [1]"
+  },
+  {
+    "question": "Em uma rede P2P, a ausência de um servidor central significa que não há custos de infraestrutura ou de largura de banda para o provedor da aplicação.",
+    "answer": "Verdadeiro",
+    "explanation": "Uma das características mais atraentes das arquiteturas P2P é a sua eficiência de custos. Como os próprios pares fornecem a infraestrutura e a largura de banda para a distribuição de conteúdo, o provedor da aplicação não precisa manter servidores caros e pagar por grandes quantidades de largura de banda, ao contrário do modelo cliente-servidor. [1]"
+  },
+  {
+    "question": "O atraso de enfileiramento se aproxima do infinito à medida que a intensidade do tráfego se aproxima de 1.",
+    "answer": "Verdadeiro",
+    "explanation": "Quando a intensidade do tráfego ($La/R$) se aproxima de 1, a taxa de chegada de bits se aproxima da capacidade de transmissão do link. Em modelos de teoria de filas, isso leva a um aumento exponencial do tamanho médio da fila e, consequentemente, do atraso de enfileiramento, que tende ao infinito. Na prática, isso significa atrasos muito longos e eventuais perdas de pacotes. [1]"
+  },
+  {
+    "question": "A camada de rede da Internet foi projetada para ser completamente transparente, de modo que um datagrama enviado de A para B sempre seguirá o mesmo caminho físico.",
+    "answer": "Falso",
+    "explanation": "A camada de rede não garante um caminho fixo. Os roteadores tomam decisões de encaminhamento dinâmicas com base em suas tabelas de roteamento, que podem mudar devido a falhas de link, congestionamento ou alterações de política. Portanto, pacotes subsequentes entre os mesmos hosts podem seguir caminhos diferentes. [1]"
+  },
+  {
+    "question": "Aplicações de streaming de vídeo como Netflix e YouTube usam exclusivamente a arquitetura P2P para distribuir seu conteúdo.",
+    "answer": "Falso",
+    "explanation": "Grandes serviços de streaming como Netflix e YouTube usam predominantemente uma arquitetura cliente-servidor, mas em uma escala massiva, utilizando Content Distribution Networks (CDNs). Eles não usam P2P para a entrega principal de seu conteúdo licenciado, optando por um controle mais rígido sobre a distribuição e a qualidade do serviço. [1]"
+  },
+  {
+    "question": "Quando um navegador solicita uma página web, o primeiro protocolo da camada de aplicação a ser invocado é geralmente o HTTP.",
+    "answer": "Falso",
+    "explanation": "Se o endereço IP do servidor web não for conhecido, o primeiro protocolo da camada de aplicação a ser invocado é o DNS. O navegador precisa primeiro usar o DNS para traduzir o nome do host (ex: www.exemplo.com) em um endereço IP antes de poder estabelecer uma conexão TCP e enviar uma requisição HTTP. [1]"
+  },
+  {
+    "question": "O software da camada de aplicação deve ser escrito para rodar nos dispositivos do núcleo da rede (roteadores) para otimizar o desempenho.",
+    "answer": "Falso",
+    "explanation": "Uma filosofia de design fundamental da Internet é que a complexidade e a lógica da aplicação residem na borda da rede (nos sistemas finais). O núcleo da rede é mantido o mais simples possível, focando apenas no encaminhamento de pacotes. Isso facilita a inovação, pois novas aplicações podem ser implantadas sem modificar os roteadores do núcleo. [1]"
+  },
+  {
+    "question": "O tempo para transmitir um pacote de 1.000 bits em um link de 1 Mbps é de 1 segundo.",
+    "answer": "Falso",
+    "explanation": "O tempo de transmissão é o tamanho do pacote dividido pela taxa do link. 1.000 bits / 1.000.000 bits por segundo = 0,001 segundos, ou 1 milissegundo. [1]"
+  },
+  {
+    "question": "A principal função de um ISP de Nível 2 (regional) é fornecer acesso à Internet diretamente para usuários residenciais.",
+    "answer": "Falso",
+    "explanation": "A principal função de um ISP regional (Nível 2) é interconectar ISPs de acesso (Nível 3) e conectá-los aos ISPs de Nível 1. Embora possam ter clientes corporativos diretos, seu papel principal na hierarquia é agregar o tráfego de provedores menores. Os ISPs de acesso são os que normalmente fornecem serviço direto aos usuários residenciais. [1]"
+  },
+  {
+    "question": "O modelo de serviço 'best-effort' da Internet garante que pelo menos 50% dos pacotes enviados chegarão ao destino.",
+    "answer": "Falso",
+    "explanation": "O serviço 'best-effort' não oferece nenhuma garantia sobre a entrega. A rede fará o 'melhor esforço' para entregar os pacotes, mas não há promessas sobre a porcentagem de pacotes que chegarão, nem sobre o atraso ou a ordem de chegada. [1]"
+  },
+  {
+    "question": "O cabeçalho 'User-Agent' em uma requisição HTTP informa ao servidor o tipo de navegador e sistema operacional que o cliente está usando.",
+    "answer": "Verdadeiro",
+    "explanation": "O cabeçalho 'User-Agent' é usado pelo cliente para se identificar para o servidor. Essa informação pode ser usada pelo servidor para fornecer conteúdo otimizado para um navegador ou dispositivo específico, ou para fins de estatísticas. [1]"
+  },
+  {
+    "question": "Para enviar um e-mail, o cliente de e-mail estabelece uma conexão SMTP diretamente com o servidor de e-mail do destinatário.",
+    "answer": "Falso",
+    "explanation": "O cliente de e-mail (agente de usuário) estabelece uma conexão SMTP com o seu próprio servidor de e-mail (o servidor do remetente). É este servidor que então estabelece uma nova conexão SMTP com o servidor de e-mail do destinatário para transferir a mensagem. [1]"
+  },
+  {
+    "question": "O sistema DNS é tolerante a falhas porque, se um servidor DNS falhar, as consultas são automaticamente redirecionadas para um servidor de backup central global.",
+    "answer": "Falso",
+    "explanation": "A tolerância a falhas do DNS vem de sua natureza distribuída e da replicação. Não existe um servidor de backup central. Em vez disso, cada nível da hierarquia (raiz, TLD, autoritativo) possui múltiplos servidores replicados geograficamente. Se um servidor falhar, as consultas podem ser direcionadas para uma de suas réplicas. [1]"
+  },
+  {
+    "question": "A principal vantagem de usar UDP para programação de sockets é que ele fornece um mecanismo integrado para controle de congestionamento.",
+    "answer": "Falso",
+    "explanation": "O UDP não fornece nenhum mecanismo de controle de congestionamento. Sua principal vantagem é a baixa sobrecarga, a ausência de estabelecimento de conexão e o controle total do desenvolvedor sobre quando e como os dados são enviados. A falta de controle de congestionamento pode ser uma desvantagem, pois aplicações UDP mal comportadas podem sobrecarregar a rede. [1]"
+  },
+  {
+    "question": "A transmissão de um bit através de um link de satélite geoestacionário tem um atraso de propagação muito maior do que através de um link de fibra ótica de 100 km.",
+    "answer": "Verdadeiro",
+    "explanation": "Um satélite geoestacionário está a aproximadamente 36.000 km acima da Terra. A viagem de ida e volta de um sinal (Terra-satélite-Terra) cobre 72.000 km, resultando em um atraso de propagação de cerca de 240 milissegundos. Um link de fibra de 100 km teria um atraso de propagação na ordem de 0,5 milissegundos. A distância domina o atraso de propagação. [1]"
+  },
+  {
+    "question": "O TCP garante que os dados sejam entregues à aplicação de destino na mesma ordem em que foram enviados pela aplicação de origem.",
+    "answer": "Verdadeiro",
+    "explanation": "O TCP fornece um serviço de fluxo de bytes em ordem (in-order byte stream). Ele usa números de sequência para rastrear a ordem dos segmentos. Se os segmentos chegarem fora de ordem no receptor, o TCP os armazena em buffer e os reordena antes de entregá-los à aplicação, garantindo que a aplicação veja um fluxo de dados contínuo e correto. [1]"
+  },
+  {
+    "question": "O HTTP/1.1 introduziu conexões persistentes com 'pipelining', que se tornou o método padrão e amplamente utilizado para melhorar o desempenho da web.",
+    "answer": "Falso",
+    "explanation": "Embora o HTTP/1.1 tenha introduzido o 'pipelining' (enviar múltiplas requisições sem esperar pelas respostas), ele era problemático e difícil de implementar corretamente, especialmente com proxies. Por isso, muitos navegadores o desativaram por padrão. As conexões persistentes se tornaram padrão, mas o pipelining foi em grande parte substituído pela multiplexação do HTTP/2. [1]"
+  },
+  {
+    "question": "Um servidor de e-mail que recebe uma mensagem via SMTP nunca modifica os cabeçalhos da mensagem original.",
+    "answer": "Falso",
+    "explanation": "Cada servidor de e-mail (MTA - Mail Transfer Agent) que manuseia uma mensagem ao longo de seu caminho adiciona um cabeçalho 'Received:'. Este cabeçalho contém informações sobre de quem o servidor recebeu a mensagem, seu próprio nome e a hora. Isso cria um rastro que pode ser usado para depurar problemas de entrega de e-mail. [1]"
+  },
+  {
+    "question": "A distribuição de um arquivo grande para N pares usando uma arquitetura cliente-servidor é sempre mais rápida do que usando uma arquitetura P2P.",
+    "answer": "Falso",
+    "explanation": "Para um grande número de pares (N), a distribuição P2P é significativamente mais rápida. No modelo cliente-servidor, o tempo de distribuição aumenta linearmente com N, pois o servidor precisa enviar uma cópia para cada par. No P2P, como cada par também se torna um distribuidor, o tempo de distribuição cresce muito mais lentamente, sendo limitado pela largura de banda total de upload do sistema. [1]"
+  },
+  {
+    "question": "A principal função de um load balancer em um data center é encaminhar pacotes entre diferentes redes de ISPs.",
+    "answer": "Falso",
+    "explanation": "A função de um load balancer é distribuir as requisições de clientes recebidas entre um grupo de servidores internos que hospedam a mesma aplicação. Isso evita que um único servidor fique sobrecarregado e melhora a escalabilidade e a disponibilidade do serviço. O encaminhamento entre ISPs é função de um roteador de borda. [1]"
+  },
+  {
+    "question": "O atraso de processamento em um roteador pode aumentar se for necessário realizar tarefas complexas, como descriptografar o cabeçalho de um pacote.",
+    "answer": "Verdadeiro",
+    "explanation": "Embora geralmente pequeno, o atraso de processamento depende das tarefas que o roteador precisa executar. Tarefas simples como verificar o checksum e consultar a tabela de encaminhamento são rápidas. Se o roteador precisar executar funções mais complexas, como inspeção profunda de pacotes (DPI) ou operações criptográficas, o atraso de processamento pode se tornar mais significativo. [1]"
+  },
+  {
+    "question": "Um dos princípios da arquitetura da Internet é que a inteligência e a complexidade devem ser mantidas no núcleo da rede, e as bordas devem ser o mais simples possível.",
+    "answer": "Falso",
+    "explanation": "O princípio é o oposto, conhecido como o 'end-to-end argument'. A inteligência e a lógica de estado complexas devem residir nos sistemas finais (nas bordas), enquanto o núcleo da rede deve ser simples, rápido e focado apenas no encaminhamento de pacotes. Isso facilita a inovação nas aplicações sem exigir mudanças no núcleo. [1]"
+  },
+  {
+    "question": "O método HTTP GET é idempotente, o que significa que fazer a mesma requisição GET múltiplas vezes tem o mesmo efeito que fazê-la uma única vez.",
+    "answer": "Verdadeiro",
+    "explanation": "A idempotência é uma propriedade de segurança importante. Uma requisição GET solicita a representação de um recurso e não deve alterar o estado do servidor. Portanto, repetir a requisição não causa efeitos colaterais adicionais. Isso é diferente de um método não idempotente como o POST, onde repeti-lo pode resultar, por exemplo, em múltiplas compras de um item. [1]"
+  },
+  {
+    "question": "Para se conectar a um servidor TCP, um cliente precisa especificar tanto o endereço IP do servidor quanto o número da porta do processo servidor.",
+    "answer": "Verdadeiro",
+    "explanation": "O endereço IP identifica o host do servidor na rede, mas um host pode estar executando muitos processos de servidor diferentes (servidor web na porta 80, servidor de e-mail na porta 25, etc.). O número da porta é necessário para identificar o processo específico (e seu socket) ao qual o cliente deseja se conectar. [1]"
+  },
+  {
+    "question": "O protocolo QUIC, desenvolvido pelo Google, opera sobre TCP para melhorar o desempenho do HTTP.",
+    "answer": "Falso",
+    "explanation": "O QUIC (Quick UDP Internet Connections) opera sobre UDP, não TCP. Ele foi projetado para superar as limitações do TCP, como o 'head-of-line blocking' na camada de transporte. Ao rodar sobre UDP, ele reimplementa funcionalidades como confiabilidade e controle de congestionamento na camada de aplicação, oferecendo mais flexibilidade e melhor desempenho para o HTTP/3. [1]"
+  },
+  {
+    "question": "A principal diferença entre uma rede de acesso DSL e uma rede de acesso por fibra ótica (FTTH) é a velocidade, mas ambas usam o mesmo meio físico de cobre.",
+    "answer": "Falso",
+    "explanation": "A principal diferença não é apenas a velocidade, mas fundamentalmente o meio físico. DSL utiliza as linhas telefônicas de cobre existentes. FTTH (Fiber to the Home) utiliza cabos de fibra ótica, que transmitem dados como pulsos de luz e oferecem capacidades de largura de banda e imunidade a interferências muito superiores às do cobre. [1]"
+  },
+  {
+    "question": "A comutação de pacotes é inerentemente menos confiável que a comutação de circuitos no nível da rede.",
+    "answer": "Verdadeiro",
+    "explanation": "No nível da rede, a comutação de circuitos estabelece um caminho dedicado e contínuo, o que torna a perda de dados ou a chegada fora de ordem muito improvável. A comutação de pacotes, por outro lado, não tem caminho dedicado; os pacotes podem ser perdidos devido a congestionamento (buffers cheios) ou chegar fora de ordem. A confiabilidade na Internet é adicionada em uma camada superior (TCP). [1]"
+  },
+  {
+    "question": "A vazão instantânea de uma transferência de dados é sempre constante durante toda a duração da transferência.",
+    "answer": "Falso",
+    "explanation": "A vazão instantânea é a taxa de transferência em um determinado momento e pode variar significativamente devido a fatores como o controle de congestionamento do TCP (que ajusta a taxa de envio) e o tráfego concorrente de outros usuários na rede. A vazão média é o tamanho total do arquivo dividido pelo tempo total da transferência. [1]"
+  },
+  {
+    "question": "O HTTP é um protocolo da camada de transporte que gerencia a entrega confiável de páginas web.",
+    "answer": "Falso",
+    "explanation": "O HTTP é um protocolo da camada de aplicação. Ele define o formato das requisições e respostas para recursos web, mas delega a tarefa de entrega confiável para o protocolo da camada de transporte subjacente, que é o TCP. [1]"
+  },
+  {
+    "question": "A razão pela qual um servidor web pode hospedar múltiplos sites em um único endereço IP é o uso de diferentes números de porta para cada site.",
+    "answer": "Falso",
+    "explanation": "Embora um servidor possa usar diferentes portas para diferentes serviços, a hospedagem de múltiplos sites (ex: site1.com, site2.com) no mesmo endereço IP e na mesma porta (geralmente a porta 80 para HTTP) é possível graças ao cabeçalho 'Host:' na requisição HTTP/1.1. O servidor usa o valor deste cabeçalho para saber qual site o cliente está solicitando. [1]"
+  },
+  {
+    "question": "No modelo de e-mail, o SMTP é usado para transferir mensagens entre servidores de e-mail, enquanto o HTTP é comumente usado em interfaces de webmail para os usuários acessarem suas caixas de correio.",
+    "answer": "Verdadeiro",
+    "explanation": "Esta é uma descrição precisa. O SMTP é o protocolo de transferência de e-mail 'back-end'. Para o acesso do usuário, protocolos como IMAP ou POP3 são usados por clientes de e-mail dedicados. Em interfaces de webmail (como o Gmail), o navegador do usuário se comunica com o servidor web do provedor de e-mail via HTTP, e este servidor web, por sua vez, interage com o servidor de e-mail (provavelmente usando IMAP internamente). [1]"
+  },
+  {
+    "question": "A principal função do tracker no BitTorrent é garantir que todos os pares baixem os pedaços do arquivo em ordem sequencial.",
+    "answer": "Falso",
+    "explanation": "A função do tracker é ajudar os pares a se encontrarem, mantendo uma lista de quem está no 'swarm'. A ordem em que os pedaços são baixados não é sequencial; é determinada pela política 'rarest first', onde os pares tentam baixar os pedaços mais raros primeiro para garantir a saúde e a disponibilidade do torrent. [1]"
+  },
+  {
+    "question": "Um programa cliente UDP precisa saber o endereço IP e o número da porta do servidor antes de enviar um datagrama.",
+    "answer": "Verdadeiro",
+    "explanation": "Como o UDP é sem conexão, cada datagrama é uma unidade independente. O cliente deve explicitamente incluir o endereço IP e o número da porta de destino em cada datagrama que envia, para que a rede saiba para onde encaminhá-lo e o sistema operacional do destino saiba para qual processo entregá-lo. [1]"
+  }
+]

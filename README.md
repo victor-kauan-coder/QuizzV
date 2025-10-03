@@ -1,106 +1,155 @@
 # QuizzV
 
-# Python Quiz Application
+# 🚀 QuizzV: AI-Powered Quiz Generator
 
-This is a simple desktop quiz application built with Python and the **customtkinter** library.  
-It allows users to load questions from a CSV file, answer them in a true or false format, and review their results.  
-The application provides immediate feedback and the option to redo only the questions that were answered incorrectly.
+Welcome to **QuizzV**, an innovative desktop application built with **Python** and the modern **CustomTkinter** library, designed to revolutionize how you create and engage with educational content.
 
-## Features
+QuizzV transforms the tedious task of quiz creation into a seamless and intelligent process.
 
-- **Customizable Questions**: Load questions from any CSV file with the correct format.
-- **True/False Format**: A straightforward and easy-to-use quiz style.
-- **Progress Tracking**: A progress bar and counter show your current position in the quiz.
-- **Scoreboard**: Displays your correct and incorrect answers in real-time.
-- **Instant Feedback**: After each question, you receive a detailed justification for the correct answer.
-- **Review Mode**: At the end of the quiz, you can choose to restart the full quiz or practice only the questions you got wrong.
-- **Modern UI**: A clean and modern user interface using the customtkinter library.
+At its core, it leverages the power of **Artificial Intelligence (AI)** to automatically generate relevant quizzes — either based on general topics or extracted from specific documents (like PDFs).
 
-## Interface
+This makes it an indispensable tool for:
 
-![QuizV](image/interface_quizv.png)
-
-## Project Structure
-
-```
-.
-├── build/                 # Build directory (if you create an executable)
-├── dist/                  # Distribution directory with the executable
-│   └── quiz_app.exe       # The compiled application for Windows
-├── questoes/              # Directory for quiz question files
-│   ├── questoes_CG.csv
-│   ├── questoes_PDI.csv
-│   └── questoes_SO.csv
-├── quizz-icon.ico         # Application icon
-└── quiz_app.py            # Main application script
-```
-
-The core of the application is **quiz_app.py**, which contains all the logic for the quiz interface and functions.  
-The **questoes/** directory holds the CSV files with the questions.
-
-## CSV File Format
-
-The application reads questions from a semicolon-delimited (`;`) CSV file.  
-The file must have a header row with three columns: **enunciado**, **resposta**, and **justificativa**.
-
-- **enunciado**: The text of the question or statement to be evaluated.
-- **resposta**: The correct answer. It must be either `True` or `False`.
-- **justificativa**: The explanation or justification for the correct answer.
-
-### Example of CSV format
-
-```csv
-enunciado;resposta;justificativa
-"The capital of Brazil is Brasília.";True;"Brasília was officially established as the capital of Brazil in 1960.";
-"The Earth is the third planet from the Sun.";True;"The order of the planets from the Sun is Mercury, Venus, Earth, and Mars.";
-"Water boils at 100°F at sea level.";False;"Water boils at 100°C (212°F) at standard atmospheric pressure.";
-```
-
-> **Note**: It is important to enclose values containing commas or semicolons within double quotes (`"`).
-
-## How to Run
-
-There are two ways to run the quiz application:
-
-### Option 1: Using the Executable
-
-For users who don't have Python installed, you can simply run the compiled executable file.
-
-1. Navigate to the **dist** folder.
-2. Double-click on **quiz_app.exe** to launch the application.
-3. A file dialog will open, prompting you to select one of the CSV files from the **questoes/** folder to start the quiz.
-
-### Option 2: Running from Source Code
-
-For developers or users who want to run the application from the source code, follow these steps:
-
-1. Clone this repository to your local machine.
-2. Make sure you have Python installed.
-3. Install the required library `customtkinter`:
-
-```bash
-pip install customtkinter
-```
-
-4. Run the main application script from your terminal:
-
-```bash
-python quizz.py
-```
-
-5. A file dialog will open, prompting you to select one of the CSV files from the **questoes/** folder to start the quiz.
+- Students seeking efficient study aids.
+- Educators aiming to create engaging learning materials.
+- Anyone curious to challenge their knowledge.
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [Python Quiz Application](#python-quiz-application)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [CSV File Format](#csv-file-format)
-- [How to Run](#how-to-run)
-  - [Option 1: Using the Executable](#option-1-using-the-executable)
-  - [Option 2: Running from Source Code](#option-2-running-from-source-code)
+- ✨ Key Features
+- 🖥️ Interface
+- 📁 Project Structure
+- 📝 Quiz File Format (JSON)
+- 🛠️ How to Run
+  - Option 1: Using the Executable (Windows)
+  - Option 2: Running from Source Code
+- ⚙️ Settings
+
+---
+
+## ✨ Key Features
+
+- **AI-Powered Quiz Generation**:  
+  Create quizzes on any subject. Provide PDF files to generate targeted quizzes.
+
+- **Quiz Management**:  
+  Import, save, and organize your quizzes. Manage them easily from the home screen.
+
+- **Highly Customizable Interface**:
+
+  - Switch between light and dark mode.
+  - Choose from various color themes.
+
+- **Instant Feedback**:  
+  Get detailed explanations for each answer.
+
+- **Smart Review Mode**:  
+  At the end of a quiz, choose to restart everything or only retry incorrect questions.
+
+- **Flexible Navigation**:  
+  Go back and review previously answered questions.
+
+- **Modern and Intuitive UI**:  
+  A clean, modern, and user-friendly interface.
+
+---
+
+## 🖥️ Interface
+
+![QuizzV](image/interface_quizzv.png)
+
+---
+
+## 📁 Project Structure
+
+The project is organized for easy maintenance and development:
+
+```
+.
+├── dist/
+│   └── QuizzV/
+│       └── QuizzV.exe      # Executable for Windows
+├── image/                  # UI icons and images
+├── quizzes/                # Saved quizzes (.json)
+├── themes/                 # UI theme files (.json)
+├── app.py                  # Main application script
+├── chat.py                 # Logic for interacting with Gemini API
+├── loading.py              # Loading animation widget
+├── settings.json           # User settings file
+└── app.spec                # PyInstaller configuration file
+```
+
+---
+
+## 📝 Quiz File Format (JSON)
+
+Quizzes are stored in **JSON format**, which is flexible and robust.  
+Each file contains a **list of objects**, where each object represents a question.
+
+### Expected structure:
+
+- **question**: The text of the question.
+- **answer**: The correct answer (`"True"` or `"False"`).
+- **explanation**: A detailed justification.
+
+### Example:
+
+```json
+[
+  {
+    "question": "The capital of Brazil is Brasília.",
+    "answer": "True",
+    "explanation": "Brasília was officially inaugurated as the capital of Brazil in 1960 to promote the development of the country's interior."
+  },
+  {
+    "question": "Water boils at 100°F at sea level.",
+    "answer": "False",
+    "explanation": "Water boils at 100°C (which is equivalent to 212°F) under standard atmospheric pressure at sea level."
+  }
+]
+```
+
+---
+
+## 🛠️ How to Run
+
+### Option 1: Using the Executable (Windows)
+
+The easiest way, no Python required:
+
+1. Navigate to the `dist/QuizzV/` folder.
+2. Double-click `QuizzV.exe`.
+3. Done! The home screen will appear and you can start using it.
+
+---
+
+### Option 2: Running from Source Code
+
+For developers or users who prefer running directly from source:
+
+```bash
+git clone https://github.com/your-username/QuizzV.git
+cd QuizzV
+pip install customtkinter google-generativeai pillow
+python app.py
+```
+
+⚠️ **Important**: To use the AI-powered quiz generation, you need an **API Key** from Google AI Studio.  
+On your first launch, go to **Settings (gear icon)** and enter your key.
+
+---
+
+## ⚙️ Settings
+
+The settings screen allows customization:
+
+- **API Key (AI)**: Enter your Gemini API key.
+- **Display Mode**: Switch between light and dark themes.
+- **Theme Color**: Choose different color schemes.
+
+---
 
 **Victor Kauan**
 
