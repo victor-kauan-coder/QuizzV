@@ -1,0 +1,9 @@
+# Pastas de Build e Distribuição
+build/
+dist/
+__pycache__/
+
+# Arquivos de ambiente Python
+venv/
+.venv/
+*.spec
