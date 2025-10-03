@@ -22,9 +22,9 @@ Esta é uma ferramenta indispensável para:
 
 ## 📋 Tabela de Conteúdos
 - [✨ Funcionalidades](#-funcionalidades)
-- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [🛠️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [🚀 Começando](#-começando)
-- [⚙️ Configuração](#️-configuração)
+- [⚙️ Configuração](#-configuração)
 - [📝 Formato dos Quizzes](#-formato-dos-quizzes-json)
 - [👨‍💻 Autor](#-autor)
 
