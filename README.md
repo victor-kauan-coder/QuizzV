@@ -5,7 +5,10 @@
 ![Python Version](https://img.shields.io/badge/python-3.8+-brightgreen.svg)
 ![Status](https://img.shields.io/badge/status-ativo-success.svg)
 
-![GIF de Demonstração do QuizzV](assets/demo.gif) 
+<p align="center">
+  <img src="./assets/demo.gif" alt="Demonstração do QuizzV" width="600">
+</p>
+
 Bem-vindo ao **QuizzV**, um aplicativo de desktop inovador construído com **Python** e a moderna biblioteca **CustomTkinter**. O QuizzV transforma a tarefa de criação de quizzes em um processo rápido, inteligente e automatizado.
 
 Utilizando o poder da **Inteligência Artificial (IA) da API do Gemini**, ele gera quizzes relevantes sobre tópicos gerais ou extrai perguntas e respostas diretamente de documentos, como arquivos PDF.
@@ -165,7 +168,7 @@ Cada arquivo consiste em uma lista de objetos, onde cada objeto representa uma �
 ]
 ```
 
-## Autor
+## 👨‍💻 Autor
 
 ### **Victor Kauan**
 
